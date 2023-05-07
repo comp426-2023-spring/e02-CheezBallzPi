@@ -1,8 +1,11 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
         <title>Rock</title>
         <!-- Link to your script file(s) and CSS in here somewhere -->
         <script src="scripts.js" defer></script>
+        <meta charset="UTF-8">
+
     </head>
     <body>
 
@@ -22,7 +25,7 @@
             <label for="random">Play against a CPU</label><br>
             <input type="radio" id="opponent" name="playstyle" value="opponent">
             <label for="opponent">Play against a set opponent</label><br>
-            <br />
+            <br>
             <div id="opponent_options" hidden>
                 <input type="radio" id="rock" name="player_option" value="rock">
                 <label for="rock">Rock</label><br>
@@ -43,9 +46,10 @@
             </div>
         </div>
         <input type="reset" id="reset" value="Reset">
+        <input type="submit" hidden>
     </form> 
 
-    <h2 id="status_message"></h2>
+    <h2 id="status_message">Let's play RPS(LS)!</h2>
 
     </body>
 </html>
