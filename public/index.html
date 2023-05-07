@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Rock</title>
+        <title>RPS(LS)</title>
         <!-- Link to your script file(s) and CSS in here somewhere -->
         <script src="scripts.js" defer></script>
+        <link rel="stylesheet" href="styles.css">
         <meta charset="UTF-8">
-
     </head>
     <body>
 
@@ -13,6 +13,30 @@
     <!-- For interface examples, look in the `/examples/` directory in the root of your starter code repo. -->
 
     <h1>Welcome to Rock Paper Scissors (Lizard Spock)</h1>
+
+    <button id="show_rules">Show Rules</button>
+
+    <div id="how_to_play" class="modal">
+        <div class="modal-content">
+            <span id="close_rules" class="close">&times;</span>
+            <h3>Rules for Rock Paper Scissors:</h3>
+            <p>- Scissors CUTS Paper</p>
+            <p>- Paper COVERS Rock</p>
+            <p>- Rock CRUSHES Scissors</p>
+            <br>
+            <h3>Rules for the Lizard-Spock Espansion of Rock Paper Scissors:</h3>
+            <p>- Scissors CUTS Paper</p>
+            <p>- Paper COVERS Rock</p>
+            <p>- Rock SMOOSHES Lizard</p>
+            <p>- Lizard POISONS Spock</p>
+            <p>- Spock SMASHES Scissors</p>
+            <p>- Scissors DECAPITATES Lizard</p>
+            <p>- Lizard EATS Paper</p>
+            <p>- Paper DISPROVES Spock</p>
+            <p>- Spock VAPORIZES Rock</p>
+            <p>- Rock CRUSHES Scissors</p>
+        </div>
+    </div>
 
     <form id="form">
         <input type="radio" id="rps" name="game_type" value="rps">
@@ -22,9 +46,9 @@
 
         <div id="play_form" hidden>
             <input type="radio" id="random" name="playstyle" value="random">
-            <label for="random">Play against a CPU</label><br>
+            <label for="random">Play with a random option</label><br>
             <input type="radio" id="opponent" name="playstyle" value="opponent">
-            <label for="opponent">Play against a set opponent</label><br>
+            <label for="opponent">Play with a specific option</label><br>
             <br>
             <div id="opponent_options" hidden>
                 <input type="radio" id="rock" name="player_option" value="rock">
@@ -39,10 +63,10 @@
                     <input type="radio" id="spock" name="player_option" value="spock">
                     <label for="spock">Spock</label><br>
                 </div>
-                <button type="button" id="opponent_submit">Play against a set opponent</button>
+                <button type="button" id="opponent_submit">Play move</button>
             </div>
             <div id="random_options" hidden>
-                <button type="button" id="random_submit">Play against a CPU</button>
+                <button type="button" id="random_submit">Play a random move</button>
             </div>
         </div>
         <button type="reset" id="reset">Reset</button>

@@ -38,7 +38,6 @@ const submit = (event) => {
   const playstyle = document.querySelector('input[name="playstyle"]:checked')?.value;
 
   if(gameType && playstyle) {
-    statusMessage.innerText = "Fetching data...";
     const getData = (player) => {
       fetch(`/app/${gameType}/play/${player}`)
       .then((res) => {
@@ -46,6 +45,9 @@ const submit = (event) => {
       })
       .then((json) => {
         statusMessage.innerText = `You played: ${capitalize(json.player)}\nThe opponent played: ${capitalize(json.opponent)}\nResult: ${capitalize(json.result)}`;
+      })
+      .catch((e) => {
+        statusMessage.innerText = 'Something went wrong. Please try again!'
       });
     }
     if(playstyle === "opponent") {
@@ -62,13 +64,18 @@ const submit = (event) => {
   }
 }
 
+const rulesModal = document.getElementById("how_to_play");
+const openRulesButton = document.getElementById("show_rules");
+const closeRulesButton = document.getElementById("close_rules");
 const gameSelect = document.getElementById("form");
+const randomSubmitButton = document.getElementById("random_submit");
+const opponentSubmitButton = document.getElementById("opponent_submit");
 
 gameSelect.addEventListener("input", showOptions);
 gameSelect.addEventListener("reset", resetOptions);
 
-const randomSubmitButton = document.getElementById("random_submit");
-const opponentSubmitButton = document.getElementById("opponent_submit");
-
 randomSubmitButton.addEventListener("click", submit);
 opponentSubmitButton.addEventListener("click", submit);
+
+openRulesButton.addEventListener("click", () => rulesModal.style.display = "block");
+closeRulesButton.addEventListener("click", () => rulesModal.style.display = "none")
